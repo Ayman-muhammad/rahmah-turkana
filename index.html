@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Support Rahmah Turkana – a mercy-driven mission to uplift Turkana’s forgotten souls with authentic Hadiths and ongoing Sadaqah Jariyah." />
-  <title>Rahmah Turkana – Hadith App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Support Rahmah Turkana – uplifting Turkana’s forgotten souls with authentic Hadiths and Sadaqah Jariyah." />
+  <meta name="theme-color" content="#004d40" />
+  <title>Rahmah Turkana – Daily Hadith & Sadaqah App</title>
   <link rel="manifest" href="manifest.json" />
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="rahmah.jpg" type="image/jpeg" />
@@ -13,32 +14,112 @@
   <header class="header">
     <img src="rahmah.jpg" alt="Rahmah Turkana Logo" class="logo" />
     <h1>📖 Hadith of the Day</h1>
-    <p class="mission">A Mercy-driven Mission to uplift the Turkana community, Insha'Allah.</p>
+    <p class="mission">A Mercy-Driven Mission to uplift our brothers and sisters in Turkana, Kenya – Insha’Allah.</p>
   </header>
 
   <main>
-    <section id="hadith-container" class="hadith-card">
+    <!-- Hadith Display -->
+    <section id="hadith-container" class="hadith-card" aria-live="polite">
       <p>Loading Hadith...</p>
     </section>
 
+    <!-- Controls -->
     <div class="controls">
-      <button id="refresh-btn" class="btn">🔁 Show Another Hadith</button>
-      <button id="toggle-lang" class="btn">🌐 Switch to Arabic</button>
+      <button id="refresh-btn" class="btn" aria-label="Show another hadith">🔁 Show Another Hadith</button>
+      <button id="toggle-lang" class="btn" aria-label="Switch language">🌐 Switch to Arabic</button>
     </div>
 
-    <section class="donate-section">
-      <h2>🤲 Support the Mission</h2>
-      <p>Send your Sadaqah to Till Number <strong>3555748</strong> (Kenya).</p>
-      <p class="small">This is an ongoing charity (Sadaqah Jariyah) for our brothers and sisters in Turkana.</p>
-      <img src="rahmah.jpg" alt="Rahmah Campaign" class="donation-img" />
+    <!-- Mission Info -->
+    <section class="about-section">
+      <h2>🌍 About the Rahmah Turkana Project</h2>
+      <p>The Turkana region in Kenya has long faced severe drought, hunger, and spiritual neglect. <strong>Rahmah Turkana</strong> is a community-driven Islamic initiative focused on sharing authentic Hadiths daily and supporting the physical and spiritual upliftment of the people of Turkana.</p>
+      <p>Through this app, users receive daily Hadiths as a source of guidance and can support the project by donating as part of their <em>Sadaqah Jariyah</em>.</p>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="donate-section" aria-labelledby="donate-title">
+      <h2 id="donate-title">🤲 Support the Mission</h2>
+      <p><strong>Send Sadaqah to Till Number: 3555748</strong> (Kenya).</p>
+      <p class="small">Your donation contributes to ongoing charity – a reward that continues even after death, by Allah's mercy.</p>
+      <img src="rahmah.jpg" alt="Support Campaign - Rahmah Turkana" class="donation-img" />
+    </section>
+
+    <!-- How to Help -->
+    <section class="help-section">
+      <h2>💡 How You Can Help</h2>
+      <ul>
+        <li>📤 Share this app with family and friends for more reward.</li>
+        <li>💳 Donate regularly using the Till Number above.</li>
+        <li>🕌 Make du'a for the people of Turkana and all oppressed Muslims.</li>
+        <li>📚 Volunteer with us in spreading knowledge and service.</li>
+      </ul>
+    </section>
+<!-- Gallery Section -->
+<section class="gallery-section">
+  <h2>📸 Project Highlights</h2>
+  <p>See some of the impact your donations and du'as are helping create, Alhamdulillah:</p>
+  <div class="gallery-grid">
+    <img src="C:\Users\rehman\Documents\turkana1.jpg" alt="Water well in Turkana" />
+    <img src="C:\Users\rehman\Documents\turkana2.jpg" alt="Food distribution" />
+    <img src="C:\Users\rehman\Documents\turkana3.jpg" alt="Qur’an session with children" />
+    <img src="C:\Users\rehman\Documents\turkana4.jpg" alt="Community prayer gathering" />
+<img src="C:\Users\rehman\Documents\turkana5.jpg" alt="Community prayer gathering" />
+  </div>
+</section>
+
+
+    <!-- Placeholder for Testimonials / Impact -->
+    <section class="testimonials">
+      <h2>📢 Voices from Turkana</h2>
+      <p><em>“This effort brought us clean water and the words of the Prophet ﷺ. May Allah bless all donors.”</em> – A local brother</p>
     </section>
   </main>
 
+  <!-- Footer -->
   <footer>
-    <p>&copy; Rahmah Turkana | Built for the Ummah 🌙</p>
-    <p class="footer-note">Contribute. Share. Get rewarded by Allah ﷻ.</p>
+    <p>&copy; <span id="year"></span> Rahmah Turkana. Built with 🤍 for the Ummah.</p>
+    <p class="footer-note">Share this app. Make du’a. Multiply your reward.</p>
   </footer>
 
-  <script src="app.js" type="module"></script>
+  <!-- JavaScript -->
+  <script>
+    // Set current year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Basic Hadith interaction placeholder
+    const hadithContainer = document.getElementById("hadith-container");
+    const refreshBtn = document.getElementById("refresh-btn");
+    const toggleLangBtn = document.getElementById("toggle-lang");
+
+    let isArabic = false;
+
+    const hadiths = {
+      en: [
+        "The best among you are those who learn the Qur’an and teach it. – Bukhari",
+        "Whoever removes a worldly hardship from a believer, Allah will remove one of the hardships of the Day of Resurrection from him. – Muslim"
+      ],
+      ar: [
+        "خَيْرُكُمْ مَنْ تَعَلَّمَ الْقُرْآنَ وَعَلَّمَهُ – البخاري",
+        "من فرّج عن مؤمن كربة من كرب الدنيا، فرّج الله عنه كربة من كرب يوم القيامة – مسلم"
+      ]
+    };
+
+    function showHadith() {
+      const lang = isArabic ? 'ar' : 'en';
+      const list = hadiths[lang];
+      const random = list[Math.floor(Math.random() * list.length)];
+      hadithContainer.innerHTML = `<p lang="${lang}">${random}</p>`;
+    }
+
+    refreshBtn.addEventListener('click', showHadith);
+    toggleLangBtn.addEventListener('click', () => {
+      isArabic = !isArabic;
+      toggleLangBtn.textContent = isArabic ? "🌐 Switch to English" : "🌐 Switch to Arabic";
+      showHadith();
+    });
+
+    // Load first hadith on load
+    showHadith();
+  </script>
 </body>
 </html>
