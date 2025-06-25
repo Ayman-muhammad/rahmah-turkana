@@ -1,0 +1,13 @@
+{
+  "name": "Rahmah Turkana – Hadith App",
+  "short_name": "HadithApp",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#004d40",
+  "icons": [{
+    "src": "rahmah.jpg",
+    "sizes": "192x192",
+    "type": "image/jpeg"
+  }]
+}
